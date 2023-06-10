@@ -118,7 +118,7 @@ const ProductList = () => {
   };
 
   return (
-    <>
+    <div data-testid="product-list">
       <Header />
       <div className="product-list-container">
         <div className="search-container">
@@ -156,7 +156,7 @@ const ProductList = () => {
         </div>
         {renderResultCount()}
       </div>
-    </>
+    </div>
   );
 };
 

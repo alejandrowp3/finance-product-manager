@@ -1,70 +1,11 @@
-# Getting Started with Create React App
+This code is a React application that displays a list of financial products and allows adding and editing products. It uses React Router to handle routes and has three main components: App, AddProductForm, and ProductList.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The App component is the entry point of the application and defines the routes using react-router-dom. The root route ("/") displays the list of products (ProductList), and the "/add" route shows the form for adding a new product (AddProductForm).
 
-## Available Scripts
+The AddProductForm component is a form that allows adding and editing products. It uses state (useState) to control the values of the form fields and handle changes in them. It also performs form validations before sending the data to the server. If the action is "add," it sends a POST request to add the product. If the action is "edit," it sends a PUT request to edit the existing product.
 
-In the project directory, you can run:
+The ProductList component displays a table of financial products. It uses useState and useEffect to fetch the products from the server and paginate the results. It also provides a search function to filter the products by name or description. Additionally, it allows adding new products through a link to the add form (AddProductForm).
 
-### `npm start`
+The ProductTable component renders the product table in ProductList. It uses map to iterate over the products and display them in table rows. It also shows a dropdown menu (three vertical dots icon) for each product with options like edit and delete.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Overall, this code is a React application that displays a list of financial products, allows adding and editing products, and provides search and pagination functionality.

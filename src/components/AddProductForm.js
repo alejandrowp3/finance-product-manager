@@ -13,7 +13,7 @@ const AddProductForm = () => {
   const productData = location.state?.productData;
 
   const { id, name, logo, description, date_release, date_revision } =
-    productData;
+    productData || {};
   const [formData, setFormData] = useState({
     id: id || "",
     name: name || "",
@@ -97,7 +97,7 @@ const AddProductForm = () => {
           toast.success("Producto editado exitosamente");
         }
 
-        // Limpiar el formulario después de enviarlo correctamente
+        // Reset Form
         setFormData({
           id: "",
           name: "",
@@ -106,6 +106,8 @@ const AddProductForm = () => {
           date_release: "",
           date_revision: "",
         });
+        setFormErrors({});
+        setRevisionDate("");
       } catch (error) {
         console.error("Error al agregar el producto:", error);
         toast.error("Error al agregar o editar el producto");
@@ -156,7 +158,7 @@ const AddProductForm = () => {
   };
 
   return (
-    <>
+    <div data-testid="add-product-form">
       <Header />
 
       <div className="form-container">
@@ -270,7 +272,7 @@ const AddProductForm = () => {
         </form>
       </div>
       <ToastContainer />
-    </>
+    </div>
   );
 };
 

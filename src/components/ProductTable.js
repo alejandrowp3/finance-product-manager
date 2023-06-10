@@ -6,9 +6,9 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import format from "date-fns/format";
 
 const ProductTable = ({ products, menuOpenIndex, handleMenuClick }) => {
-  const handleEdit = (product) => {};
   const handleDelete = (id) => {
     axios
       .delete(
@@ -43,7 +43,6 @@ const ProductTable = ({ products, menuOpenIndex, handleMenuClick }) => {
         </thead>
         <tbody>
           {products.map((product, index) => {
-            const handleEditClick = () => handleEdit(product);
             const handleDeleteClick = () => handleDelete(product.id);
             return (
               <tr key={product.id}>
@@ -56,8 +55,16 @@ const ProductTable = ({ products, menuOpenIndex, handleMenuClick }) => {
                 </td>
                 <td>{product.name}</td>
                 <td>{product.description}</td>
-                <td>{product.date_release}</td>
-                <td>{product.date_revision}</td>
+                <td>
+                  {product.date_release
+                    ? format(new Date(product.date_release), "yyyy-MM-dd")
+                    : ""}
+                </td>
+                <td>
+                  {product.date_revision
+                    ? format(new Date(product.date_revision), "yyyy-MM-dd")
+                    : ""}
+                </td>
                 <td>
                   <div className="menu-dropdown">
                     <div
@@ -76,7 +83,6 @@ const ProductTable = ({ products, menuOpenIndex, handleMenuClick }) => {
                       <div className="menu-content">
                         <Link
                           className="action-button"
-                          //   onClick={handleEditClick}
                           to={{ pathname: "/add" }}
                           state={{ action: "edit", productData: product }}
                         >
