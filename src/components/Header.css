@@ -1,0 +1,18 @@
+.header-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f3e99d;
+  color: #000;
+}
+
+.bank-icon {
+  font-size: 28px;
+  margin-right: 10px;
+}
+
+.header-title {
+  font-size: 28px;
+  font-weight: bold;
+}
